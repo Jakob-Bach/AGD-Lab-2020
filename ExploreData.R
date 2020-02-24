@@ -16,3 +16,26 @@ names(which(sapply(trainValues, is.double)))
 categoricalCols <- names(which(sapply(trainValues, is.factor)))
 categoricalCols
 sort(sapply(categoricalCols, function(x) length(levels(trainValues[[x]]))))
+
+# Categories in training and test
+for (categoricalCol in categoricalCols) {
+  cat(categoricalCol, ":", sep = "")
+  trainLevels <- levels(trainValues[[categoricalCol]])
+  testLevels <- levels(testValues[[categoricalCol]])
+  if ((length(trainLevels) == length(testLevels)) && all(trainLevels == testLevels)) {
+    cat("Same levels in train and test.")
+  }
+  if (length(setdiff(trainLevels, testLevels)) > 0) {
+    cat("Additional levels in train. ")
+  }
+  if (length(setdiff(testLevels, trainLevels)) > 0) {
+    cat("Additional levels in test. ")
+  }
+  cat("\n")
+}
+
+# NAs
+sapply(trainValues, function(x) sum(is.na(x)))
+sapply(testValues, function(x) sum(is.na(x)))
+names(which(sapply(trainValues, anyNA)))
+names(which(sapply(testValues, anyNA)))

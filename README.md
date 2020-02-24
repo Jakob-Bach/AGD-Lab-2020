@@ -7,3 +7,5 @@ The train:test ratio is 80:20.
 To use our code, download the data, name the relevant files `train_data.csv`, `test_data.csv`, `test_labels.csv`
 (no need to store the 4th file, which demonstrates the submission format)
 and place them in a folder `data/` within this repo.
+
+Required packages: `data.table`, `xgboost`
