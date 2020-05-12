@@ -1,6 +1,9 @@
 library(data.table)
 
 inputPath <- "data/" # adapt this
+if (!dir.exists(inputPath)) {
+  stop("The input path is wrong.")
+}
 
 # Get names of split files
 truthFiles <- list.files("data/", pattern = "split_test_labels_.*\\.csv", full.names = TRUE)

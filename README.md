@@ -30,7 +30,7 @@ We have submission scripts which comply to the input format and the submission f
 By changing the naming pattern of the input and output files, the scripts can also be used to create submissions for the challenge itself.
 
 - `CreateSubmission_Majority.R` is a baseline: It predicts the most frequent class from the train data.
-- `CreateSubmission_xgboost` is a more competitive solution. It uses `xgboost` without any hyper-parameter tuning. Also, there is no feature engineering. We have to do some minimal pre-processing, as the one-hot-encoding of the categories or the training procedure afterwards have problems with the following points:
+- `CreateSubmission_xgboost.R` is a more competitive solution. It uses `xgboost` without any hyper-parameter tuning. Also, there is no feature engineering. We have to do some minimal pre-processing, as the one-hot-encoding of the categories or the training procedure afterwards have problems with the following points:
   - NA values
   - categorical features which have too many categories
   - different categories in training and test data for some features
