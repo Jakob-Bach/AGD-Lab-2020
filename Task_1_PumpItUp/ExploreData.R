@@ -35,7 +35,7 @@ for (categoricalCol in categoricalCols) {
 }
 
 # NAs
-sapply(trainValues, function(x) sum(is.na(x)))
-sapply(testValues, function(x) sum(is.na(x)))
-names(which(sapply(trainValues, anyNA)))
-names(which(sapply(testValues, anyNA)))
+sapply(trainValues, function(x) sum(is.na(x) | x == ""))
+sapply(testValues, function(x) sum(is.na(x) | x == ""))
+names(which(sapply(trainValues, function(x) anyNA(x) || any(x == ""))))
+names(which(sapply(testValues, function(x) anyNA(x) || any(x == ""))))
