@@ -81,15 +81,33 @@ For scoring, we again use splits which are unknown to the students.
 As for task 1, the students need to write a pipeline which can process any number of train and test files,
 following our naming conventions.
 `split_data.py` creates the splits with stratified k-fold cross-validation.
-We only store the meta-data -- file name and author for train, just the file name for test.
+We only store the meta-data -- file name + author for train data,
+just the file name for test data and
+file name + author for test labels (not  provided to students).
 `score_classification.py` reads in the submissions and computes (multi-class) MCC.
+
+### Clustering Scoring
+
+As we know the ground truth, we can use external validity measures.
+Internal validity measures as the Silhouette coefficients would be possible as well.
+Some of the clustering algorithms in `sklearn` allow to assign new objects to existing clusters (`predict()`), some don't.
+Thus, we use the same splitting procedure as for classification
+(`split_data.py`, boolean flag for clustering),
+but evaluate the pipeline just on the training sets.
+The only purpose of the test sets is to remove objects from the training sets,
+so we have some variability and we can mitigate overfitting.
+Thus, we only store train data (file names) and
+train labels (file names + authors, not provided to students).
+We use Normalized Mutual Information for scoring in `score_clustering.py`.
+The clustering labels can be integers or string or mixed (they are arbitrary).
 
 ### Demo Submissions
 
-We provide two submission scripts which comply to the I/O format of the course.
+We provide three submission scripts which comply to the I/O format of the course.
 
 - `predict_majority.py` is a baseline: It predicts the most frequent class from the train data.
 - `predict_xgboost.py` uses `xgboost` on the (relative) term-frequency matrix. No tuning of the pre-processing or training.
+- `cluster_hclust.py` runs agglomerative hierarchical clustering with three clusters and cosine similariy.
 
 ### R Code (Legacy)
 
