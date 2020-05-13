@@ -75,6 +75,14 @@ To use the script on your computer, you have to adapt the input and output path 
 - classification
 - clustering
 
+### Classification Scoring
+
+For scoring, we again use splits which are unknown to the students.
+As for task 1, the students need to write a pipeline which can process any number of train and test files,
+following our naming conventions.
+`split_data.py` creates the splits with stratified k-fold cross-validation.
+We only store the meta-data -- file name and author for train, just the file name for test.
+
 ### R Code (Legacy)
 
 - `PrepareData.R` does some first pre-processing, though only on the file path/name level.
