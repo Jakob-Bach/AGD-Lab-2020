@@ -82,6 +82,14 @@ As for task 1, the students need to write a pipeline which can process any numbe
 following our naming conventions.
 `split_data.py` creates the splits with stratified k-fold cross-validation.
 We only store the meta-data -- file name and author for train, just the file name for test.
+`score_classification.py` reads in the submissions and computes (multi-class) MCC.
+
+### Demo Submissions
+
+We provide two submission scripts which comply to the I/O format of the course.
+
+- `predict_majority.py` is a baseline: It predicts the most frequent class from the train data.
+- `predict_xgboost.py` uses `xgboost` on the (relative) term-frequency matrix. No tuning of the pre-processing or training.
 
 ### R Code (Legacy)
 
