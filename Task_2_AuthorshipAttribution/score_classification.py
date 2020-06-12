@@ -24,7 +24,7 @@ if len(prediction_file_paths) != len(truth_file_paths):
 # Scoring
 scores = []
 for truth_file_path in truth_file_paths:
-    id_string = re.search('[0-9]+', str(truth_file_path)).group()
+    id_string = re.search('([0-9]+).csv', str(truth_file_path)).group()
     prediction_file_path = prediction_dir.joinpath('prediction_' + id_string + '.csv')
     if prediction_file_path not in prediction_file_paths:
         raise FileNotFoundError('No matching prediction file for "' + id_string + '".')
