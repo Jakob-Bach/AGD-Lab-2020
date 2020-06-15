@@ -10,7 +10,7 @@ for test_file in glob.glob(input_dir + 'split_test_data_[0-9][0-9]*.csv'):
     train_file = test_file.replace('test', 'train')
     train_file_info = pd.read_csv(train_file, sep='|')
     test_file_info = pd.read_csv(test_file, sep='|')
-    id_string = re.search('([0-9]+)\\.csv', train_file).group()
+    id_string = re.search('([0-9]+)\\.csv', train_file).group(1)
 
     # Determine majority class
     majority_class = train_file_info.groupby('author').agg('size').idxmax()
