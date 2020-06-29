@@ -1,15 +1,17 @@
 import glob
-import pandas as pd
 import re
-from sklearn.preprocessing import LabelEncoder
+
+import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import LabelEncoder
+from tqdm import tqdm
 import xgboost as xgb
 
 input_dir = 'data/corpus/'
 corpus_dir = 'data/corpus/'
 output_dir = 'data/corpus/'
 
-for test_file in glob.glob(input_dir + 'split_test_data_[0-9][0-9]*.csv'):
+for test_file in tqdm(glob.glob(input_dir + 'split_test_data_[0-9][0-9]*.csv')):
     # Read in
     train_file = test_file.replace('test', 'train')
     train_file_info = pd.read_csv(train_file, sep='|')

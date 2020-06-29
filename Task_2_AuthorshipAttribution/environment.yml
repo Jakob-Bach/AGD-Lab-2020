@@ -1,11 +1,12 @@
 name: agdlab_20
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - backcall=0.1.0=py38_0
   - blas=1.0=mkl
-  - ca-certificates=2020.1.1=0
-  - certifi=2020.4.5.1=py38_0
+  - ca-certificates=2020.6.20=hecda079_0
+  - certifi=2020.6.20=py38h32f6830_0
   - colorama=0.4.3=py_0
   - cycler=0.10.0=py38_0
   - decorator=4.4.2=py_0
@@ -45,6 +46,7 @@ dependencies:
   - pyqt=5.9.2=py38ha925a31_4
   - python=3.8.2=he1778fa_13
   - python-dateutil=2.8.1=py_0
+  - python_abi=3.8=1_cp38
   - pytz=2020.1=py_0
   - pywin32=227=py38he774522_1
   - pyzmq=18.1.1=py38ha925a31_0
@@ -57,6 +59,7 @@ dependencies:
   - six=1.14.0=py38_0
   - sqlite=3.31.1=h2a8f88b_1
   - tornado=6.0.4=py38he774522_1
+  - tqdm=4.47.0=pyh9f0ad1d_0
   - traitlets=4.3.3=py38_0
   - vc=14.1=h0510ff6_4
   - vs2015_runtime=14.16.27012=hf0eaf9b_1
@@ -66,6 +69,8 @@ dependencies:
   - zeromq=4.3.1=h33f27b4_3
   - zlib=1.2.11=h62dcd97_4
   - pip:
+    - fasttext==0.9.2
+    - pybind11==2.5.0
     - xgboost==1.0.2
 prefix: C:\MyData\Anaconda3\envs\agdlab_20
 
