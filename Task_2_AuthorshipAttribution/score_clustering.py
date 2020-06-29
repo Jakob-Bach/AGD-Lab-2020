@@ -29,7 +29,7 @@ for truth_file_path in truth_file_paths:
     if clustering_file_path not in clustering_file_paths:
         raise FileNotFoundError('No matching clustering file for "' + id_string + '".')
     truth_data = pd.read_csv(truth_file_path, sep='|', quoting=csv.QUOTE_NONE)
-    clustering_data = pd.read_csv(clustering_file_path, sep = '|')
+    clustering_data = pd.read_csv(clustering_file_path, sep='|')
     if clustering_data.shape[0] != truth_data.shape[0]:
         raise ValueError('Number of observations wrong.')
     if clustering_data.shape[1] != truth_data.shape[1]:
@@ -37,5 +37,5 @@ for truth_file_path in truth_file_paths:
     if list(clustering_data) != list(truth_data):
         raise ValueError('Column name wrong (might be quoted).')
     merged = truth_data.merge(clustering_data, on='output_file')
-    scores.append(normalized_mutual_info_score(labels_true= merged.author_x, labels_pred=merged.author_y))
+    scores.append(normalized_mutual_info_score(labels_true=merged.author_x, labels_pred=merged.author_y))
 print(round(sum(scores) / len(scores), 3))

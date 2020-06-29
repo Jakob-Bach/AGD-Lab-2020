@@ -17,5 +17,5 @@ for test_file in glob.glob(input_dir + 'split_test_data_[0-9][0-9]*.csv'):
 
     # Write output
     test_file_info['author'] = majority_class
-    test_file_info.to_csv(output_dir + 'prediction_' + id_string + '.csv',\
-        sep = '|', index=False, line_terminator='\n')
+    test_file_info.to_csv(output_dir + 'prediction_' + id_string + '.csv',
+                          sep='|', index=False, line_terminator='\n')

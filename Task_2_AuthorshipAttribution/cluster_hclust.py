@@ -24,5 +24,5 @@ for data_file in glob.glob(input_dir + 'split_clustering_data_[0-9][0-9]*.csv'):
 
     # Write output
     file_info['author'] = model.labels_
-    file_info.to_csv(output_dir + 'clustering_' + id_string + '.csv',\
-        sep = '|', index=False, line_terminator='\n')
+    file_info.to_csv(output_dir + 'clustering_' + id_string + '.csv',
+                     sep='|', index=False, line_terminator='\n')

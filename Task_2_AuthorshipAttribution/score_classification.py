@@ -29,7 +29,7 @@ for truth_file_path in truth_file_paths:
     if prediction_file_path not in prediction_file_paths:
         raise FileNotFoundError('No matching prediction file for "' + id_string + '".')
     truth_data = pd.read_csv(truth_file_path, sep='|', quoting=csv.QUOTE_NONE)
-    prediction_data = pd.read_csv(prediction_file_path, sep = '|')
+    prediction_data = pd.read_csv(prediction_file_path, sep='|')
     if prediction_data.shape[0] != truth_data.shape[0]:
         raise ValueError('Number of observations wrong.')
     if prediction_data.shape[1] != truth_data.shape[1]:
@@ -37,5 +37,5 @@ for truth_file_path in truth_file_paths:
     if list(prediction_data) != list(truth_data):
         raise ValueError('Column name wrong (might be quoted).')
     merged = truth_data.merge(prediction_data, on='output_file')
-    scores.append(matthews_corrcoef(y_true= merged.author_x, y_pred=merged.author_y))
+    scores.append(matthews_corrcoef(y_true=merged.author_x, y_pred=merged.author_y))
 print(round(sum(scores) / len(scores), 3))
