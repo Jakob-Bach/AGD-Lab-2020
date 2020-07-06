@@ -1,17 +1,19 @@
 import glob
-import pandas as pd
 import re
+
+import pandas as pd
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.feature_extraction.text import TfidfVectorizer
+import tqdm
 
 input_dir = 'data/corpus/'
 corpus_dir = 'data/corpus/'
 output_dir = 'data/corpus/'
 
-for data_file in glob.glob(input_dir + 'split_clustering_data_[0-9][0-9]*.csv'):
+for data_file in tqdm.tqdm(glob.glob(input_dir + 'split_clustering_data_[0-9][0-9]*.csv')):
     # Read in
     file_info = pd.read_csv(data_file, sep='|')
-    id_string = re.search('[0-9]+', data_file).group()
+    id_string = re.search('([0-9]+)\\.csv', data_file).group(1)
 
     # Engineer features
     vectorizer = TfidfVectorizer(input='filename', use_idf=False, norm='l1')

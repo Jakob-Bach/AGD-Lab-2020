@@ -24,7 +24,7 @@ if len(clustering_file_paths) != len(truth_file_paths):
 # Scoring
 scores = []
 for truth_file_path in truth_file_paths:
-    id_string = re.search('[0-9]+', str(truth_file_path)).group()
+    id_string = re.search('([0-9]+)\\.csv', str(truth_file_path)).group(1)
     clustering_file_path = clustering_dir.joinpath('clustering_' + id_string + '.csv')
     if clustering_file_path not in clustering_file_paths:
         raise FileNotFoundError('No matching clustering file for "' + id_string + '".')
