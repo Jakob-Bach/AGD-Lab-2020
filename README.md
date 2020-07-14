@@ -1,4 +1,12 @@
-# Supervisor Repo for AGD Lab 2020
+# Analyzing Big Data Laboratory Course 2020
+
+This is the supervisor repo of the ["Analyzing Big Data Laboratory Course"](http://dbis.ipd.kit.edu/english/2756.php) at KIT in 2020.
+Students worked on two subtasks:
+
+- a classification task from a data-mining competition platform, using standard (tabular) data
+- a text classification/clustering task
+
+The repo provides files for preparing the datasets, some basic exploration, course-internal splitting, scoring, and demo submissions for that.
 
 ## Task 1: Pump it Up
 
