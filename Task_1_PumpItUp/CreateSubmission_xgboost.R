@@ -47,7 +47,7 @@ for (testValueFile in list.files(inputPath, pattern = "split_test_values_[0-9]+\
   solution = data.table(id = testIds, status_group = levels(trainLabels$status_group)[testPrediction + 1])
   
   ### Write solution -----
-  #seedString <- regmatches(testValueFile, regexpr("[0-9]+.csv$", testValueFile))
+  seedString <- regmatches(testValueFile, regexpr("[0-9]+.csv$", testValueFile))
   fwrite(x = solution, file = paste0(outputPath, "prediction_", seedString),
          quote = FALSE, eol = "\n")
 }
